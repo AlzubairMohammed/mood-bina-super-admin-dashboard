@@ -8,6 +8,7 @@ import './style/style.css'
 import { vfmPlugin } from 'vue-final-modal'
 import 'flowbite';
 import VueSweetalert2 from 'vue-sweetalert2'
+import "sweetalert2/dist/sweetalert2.min.css";
 
 
 
