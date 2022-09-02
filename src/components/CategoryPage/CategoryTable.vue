@@ -221,11 +221,6 @@ export default {
       console.log(this.x+"hi");
       // this.$router.go()
     },
-    join(id){
-        this.x = this.allSubSections.filter((allSubSections)=>{
-          return allSubSections.sections_id === id
-        })
-      },
       
     ...mapActions(['fetchCategories'])
   },

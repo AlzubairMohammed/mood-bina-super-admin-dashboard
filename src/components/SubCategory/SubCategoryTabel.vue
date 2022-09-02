@@ -41,7 +41,7 @@
               <img :src="'http://localhost:3000/uploads/' + subCategory.image" alt="" class="w-20">
           </td>
           <td class="px-6 py-4">{{subCategory.name}}</td>
-          <td class="px-6 py-4">{{subCategory['sections']}} </td>
+          <td class="px-6 py-4">{{subCategory.sections.name}} </td>
             <td class="px-6 py-4">
                  <a
               href="#"
