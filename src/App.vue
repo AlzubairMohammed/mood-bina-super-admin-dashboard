@@ -16,6 +16,23 @@ export default {
     ModalsContainer
   },
   methods:{
+    responseAlert(text, title, icon) {
+      this.$swal.fire({
+        title: `${title}`,
+        text: ` ${text} `,
+        icon: `${icon}`,
+        toast: true,
+        position: "top-start",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    }
+  },
+  provide() {
+    return {
+      checkCookie: this.checkCookie,
+      responseAlert: this.responseAlert,
+    };
   }
 };
 </script>

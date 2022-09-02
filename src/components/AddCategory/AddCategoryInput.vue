@@ -154,7 +154,7 @@
               SVG, PNG, JPG or GIF (MAX. 800x400px)
             </p>
           </div>
-          <input id="dropzone-file" type="file" name="photos" class="hidden" />
+          <input id="dropzone-file" type="file" name="photos" class="hidden" v-on="image" />
         </label>
       </div>
     </div>
@@ -174,8 +174,11 @@
 <script>
 export default {
   name: "AddCategoryInput",
+  inject: ["responseAlert"],
   data() {
     return {
+      name:'',
+      image:'',
       success: false,
       failed: false,
     };
@@ -183,8 +186,23 @@ export default {
   methods: {
     newCategory() {
       const formData = new FormData(this.$refs.form);
+      const validationData = Object.fromEntries(formData)
+      if(!validationData.name) {
+        this.error = 'الرجاء ادخال اسم القسم'
+        console.log(this.error);
+        this.responseAlert(this.error, " عفوا ", "warning");
+        return
+      }
+      if(!validationData.photos.name) {
+        this.error = 'الرجاء صورة للقسم'
+        console.log(this.error);
+        this.responseAlert(this.error, " عفوا ", "warning");
+        return
+      }
       this.$store.dispatch("addCategory", formData);
       this.success = true;
+      this.name = ''
+      this.image = ''
       // this.$router.replace('/CategoryPage')
     },
   },
