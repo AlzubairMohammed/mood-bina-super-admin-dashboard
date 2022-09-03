@@ -38,7 +38,7 @@
             {{++index}}
           </th>
           <td class="px-6 py-4">
-              <img :src="'http://localhost:3000/uploads/' + subCategory.image" alt="" class="w-20">
+              <img :src="'http://localhost:5000/uploads/' + subCategory.image" alt="" class="w-20">
           </td>
           <td class="px-6 py-4">{{subCategory.name}}</td>
           <td class="px-6 py-4">{{subCategory.sections.name}} </td>
@@ -107,10 +107,38 @@ export default {
     },
     components:{EditSubCatInput},
     methods:{
-      deletSubCategory(sectionId){
-        this.$store.dispatch('deletSubSection', sectionId)
-        // this.$router.go()
-      },
+      deletSubCategory(id) {
+      this.$swal
+        .fire({
+          title: " هل انت متاكد ؟ ",
+          text: " لن تستطيع استرجاع هذا القسم مجددا ! ",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#1C64F2",
+          cancelButtonColor: "#d33",
+          confirmButtonText: " نعم, انا متاكد ",
+          cancelButtonText: "الغاء",
+        })
+        .then((result) => {
+          if (result.isConfirmed) {
+            this.$store.dispatch("deletSubSection", id);
+            this.$swal.fire({
+              icon: "success",
+              title: " تم ",
+              text: " تم حذف القسم بنجاح ",
+              confirmButtonColor: "#16a34a",
+            });
+          } else {
+            this.$swal.fire({
+              icon: "error",
+              title: " الغاء ",
+              text: " تم الغاء عملية الحذف ",
+              confirmButtonColor: "#16a34a",
+              confirmButtonText: "حسنا",
+            });
+          }
+        });
+    },
       ...mapActions(['getSubSections','fetchCategories'])
     },
     computed: {

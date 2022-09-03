@@ -51,7 +51,7 @@
           ></path>
         </svg>
       </button>
-    </div>
+    </div> 
     <div class="floating-input mb-5 relative">
       <input
         type="text"

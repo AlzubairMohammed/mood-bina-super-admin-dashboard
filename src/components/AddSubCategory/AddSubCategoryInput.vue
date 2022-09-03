@@ -123,7 +123,6 @@ export default {
     createSubSecion(){
       const formData = new FormData(this.$refs.form);
       this.$store.dispatch('createSubSection',formData)
-      this.$router.back()
     },
      ...mapActions(['fetchCategories'])
    
