@@ -3,6 +3,7 @@ import axios from "axios";
 export default {
     state: {
         users:[],
+        login_url: "http://localhost:5000/api/v1/auth/login",
         session_url: "http://localhost:5000/api/v1/auth/register"
     },
     getters: {
@@ -11,6 +12,17 @@ export default {
         }
     },
     actions: {
+        async login({ commit, state }, user) {
+            try {
+              const response = await axios.post(state.login_url, user);
+              console.log("success");
+              console.log(response.data);
+              localStorage.setItem("user_token", response.data.token);
+              commit("loginUser", response.data);
+            } catch (err) {
+              commit("loginUser", err.response.data);
+            }
+          },
         async createUser({commit, state} ,users) {
             this.users = Object.fromEntries(users)
             this.users.address = 'kalakla'
@@ -38,6 +50,13 @@ export default {
           } 
     },
     mutations: {
+        loginUser: (state, user) => {
+            if (user.success == true) {
+              state.token = user.token;
+            } else {
+              console.log(user.success);
+            }
+          },
         createUser: (state, users)=>{
             state.users.unshift(users)
         },

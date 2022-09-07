@@ -1,19 +1,26 @@
 <template>
-  <div class="md:flex  block">
-    <app-header></app-header>
-    <router-view />
+  <div v-if="user_session !== true">
+    <div class="md:flex block">
+      <app-header></app-header>
+      <router-view />
+    </div>
   </div>
-      <modals-container></modals-container>
+  <div v-else>
+    <login-page></login-page>
+  </div>
+  <modals-container></modals-container>
 
 </template>
 <script>
 import AppHeader from "./components/AppHeader.vue";
 import { ModalsContainer } from 'vue-final-modal';
+import LoginPage from './views/LoginPage.vue'
 
 export default {
   components: {
     AppHeader,
-    ModalsContainer
+    ModalsContainer,
+    LoginPage
   },
   methods:{
     responseAlert(text, title, icon) {
@@ -39,3 +46,9 @@ export default {
 
 <style>
 </style>
+<!--
+  admin4
+  admin4@gmail.com
+  123123123
+  0123456789
+-->
