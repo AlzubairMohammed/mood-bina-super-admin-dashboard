@@ -1,5 +1,5 @@
 <template>
-  <div v-if="user_session !== true">
+  <div v-if="user_session !== null">
     <div class="md:flex block">
       <app-header></app-header>
       <router-view />
@@ -17,6 +17,11 @@ import { ModalsContainer } from 'vue-final-modal';
 import LoginPage from './views/LoginPage.vue'
 
 export default {
+  data(){
+    return {
+      user_session:localStorage.getItem("user_token")
+    }
+  },
   components: {
     AppHeader,
     ModalsContainer,
@@ -37,9 +42,11 @@ export default {
   },
   provide() {
     return {
-      checkCookie: this.checkCookie,
       responseAlert: this.responseAlert,
     };
+  },
+  async created() {
+    console.log(this.user_session);
   }
 };
 </script>

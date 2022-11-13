@@ -128,7 +128,7 @@
           </th>
           <td class="px-6 py-4">
             <img
-              :src="'http://localhost:5000/uploads/' + category.image"
+              :src="'https://www.mod-bina.com/uploads/' + category.image"
               alt=""
               class="w-20"
             />

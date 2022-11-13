@@ -2,7 +2,12 @@ import axios from "axios";
 
 const state = {
   categories: [],
-  session_url: "http://localhost:5000/api/v1/sections",
+  session_url: "https://www.mod-bina.com/api/v1/sections",
+  config: {
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("user_token"),
+    },
+  },
 };
 
 const getters = {
@@ -16,17 +21,17 @@ const actions = {
     const response = await axios.get(state.session_url);
     commit("setCategories", response.data);
   },
-  async addCategory({ commit, state }, category) {
-    const response = await axios.post(state.session_url, category);
+  async addCategory({ commit, state }, category,) {
+    const response = await axios.post(state.session_url, category,state.config);
     commit("newCategory", response.data);
   },
   async updateCategory({ commit, state }, payload) {
     const { id, category } = payload;
-    await axios.put(`${state.session_url}/${id}`, category);
+    await axios.put(`${state.session_url}/${id}`, category, state.config);
     commit("editCategory");
   },
   async deleteCategory({ commit, state }, id) {
-    await axios.delete(`${state.session_url}/${id}`);
+    await axios.delete(`${state.session_url}/${id}`, state.config);
     commit("removeCategory");
   },
 };

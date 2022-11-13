@@ -153,9 +153,9 @@ export default {
         this.responseAlert(this.error, " عفوا ", "warning");
         return
       }
-      this.$store.dispatch("addCategory", formData);
       this.success = true;
       this.$store.dispatch("updateCategory", payload);
+      this.$router.push({path: '/CategoryPage'});
     },
   },
   created() {
