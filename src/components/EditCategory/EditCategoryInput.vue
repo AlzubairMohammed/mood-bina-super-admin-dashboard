@@ -110,7 +110,7 @@
     </div>
     <img
       v-if="category.image"
-      :src="'http://localhost:5000/uploads/' + category.image"
+      :src="'https://mod-bina.com/uploads/' + category.image"
       alt=""
     />
 

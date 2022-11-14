@@ -24,6 +24,11 @@ export default {
             const response = await axios.get(state.session_url, state.config);
             commit('setSubSections', response.data)
         },
+        async updateSubSections({ commit, state }, payload) {
+            const { id, category } = payload;
+            await axios.put(`${state.session_url}/${id}`, category, state.config);
+            commit("editSubSections");
+          },
         async deletSubSection({commit, state} ,id) {
             console.log(id);
             const response = await axios.delete(`${state.session_url}/${id}`, state.config)
@@ -36,6 +41,9 @@ export default {
         },
         setSubSections: (state, subSections)=>{
             state.subSections = subSections
+        },
+        editSubSections: ()=>{
+
         },
         deletSubSectionMutation: ()=>{
             console.log('sub section deleted');

@@ -15,6 +15,7 @@ import PaymentsPage from '../views/PaymentsPage.vue'
 import PaymentsDetails from '../views/PaymentsDetails.vue'
 import LastPayments from '../views/LastPayments.vue'
 import LoginPage from '../views/LoginPage.vue'
+import EditSubCategory from '../components/EditSubCategory/EditSubCatInput.vue'
 
 const routes = [
   {
@@ -96,6 +97,11 @@ const routes = [
     path:"/LoginPage",
     name:"LoginPage",
     component:LoginPage
+  },
+  {
+    path:"/EditSubCategory",
+    name:"EditSubCategory",
+    component:EditSubCategory
   },
 ]
 

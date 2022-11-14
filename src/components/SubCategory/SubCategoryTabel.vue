@@ -43,18 +43,16 @@
           <td class="px-6 py-4">{{subCategory.name}}</td>
           <td class="px-6 py-4">{{subCategory.sections.name}} </td>
             <td class="px-6 py-4">
-                 <a
-              href="#"
-              class="
-                font-medium
-                text-blue-600
-                dark:text-blue-500
-                hover:underline
-              "
-              data-modal-toggle="EditSub"
-              >تعديل </a
+              <router-link
+              :to="{ name: 'EditSubCategory', params: { id: subCategory.id } }"
             >
-                
+              <a
+                type="button"
+                class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                data-modal-toggle="EditCat"
+                >تعديل
+              </a>
+            </router-link>
           </td>
           <td class="px-6 py-4">
                  <a
