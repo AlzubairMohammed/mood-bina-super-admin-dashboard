@@ -38,7 +38,7 @@
             {{++index}}
           </th>
           <td class="px-6 py-4">
-              <img :src="'https://www.mod-bina.com/uploads/' + subCategory.image" alt="" class="w-20">
+              <img :src="'https://mod-bina.com/uploads/' + subCategory.image" alt="" class="w-20">
           </td>
           <td class="px-6 py-4">{{subCategory.name}}</td>
           <td class="px-6 py-4">{{subCategory.sections.name}} </td>

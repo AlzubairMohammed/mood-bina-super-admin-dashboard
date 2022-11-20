@@ -3,8 +3,8 @@ import axios from "axios";
 export default {
     state: {
         users:[],
-        login_url: "https://www.mod-bina.com/api/v1/auth/login",
-        session_url: "https://www.mod-bina.com/api/v1/users"
+        login_url: "https://mod-bina.com/api/v1/auth/login",
+        session_url: "https://mod-bina.com/api/v1/users"
     },
     getters: {
         allUsers: (state)=>{

@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
     state: {
         subSections:[],
-        session_url: "https://www.mod-bina.com/api/v1/subSections",
+        session_url: "https://mod-bina.com/api/v1/subSections",
         config: {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("user_token"),
