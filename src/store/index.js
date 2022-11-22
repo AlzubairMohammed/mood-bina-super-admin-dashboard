@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import products from './products'
+// import products from './products'
 import categories from './categories'
 import subSection from './subSection'
 import users from './users'
@@ -14,7 +14,7 @@ export default createStore({
   actions: {
   },
   modules: {
-    products,
+    // products,
     categories,
     subSection,
     users
